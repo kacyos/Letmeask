@@ -1,0 +1,1 @@
+# Aplicação cirada para gerenciar perguntas
