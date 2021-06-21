@@ -1,1 +1,1 @@
-# Aplicação cirada para gerenciar perguntas
+# Aplicação criada para gerenciar perguntas
