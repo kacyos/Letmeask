@@ -1,0 +1,93 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  position: absolute;
+  background-color: #f8f8f8;
+  height: 362px;
+  width: 590px;
+  border-radius: 6px;
+
+  strong {
+    color: #29292e;
+    font-size: 24px;
+    line-height: 34px;
+  }
+
+  .button-modal {
+    display: flex;
+    gap: 10px;
+
+    margin-top: 20px;
+
+    button {
+      cursor: pointer;
+      border-radius: 8px;
+      height: 48px;
+      width: 140px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      font-family: "Roboto" sans-serif;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
+    .btn-cancel {
+      color: #737380;
+      background: #dbdcdd;
+    }
+
+    .btn-delete {
+      color: #f8f8f8;
+      background: #d73754;
+    }
+  }
+}
+
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: rgba(8, 8, 8, 0.9);
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+@media (max-width: 425px) {
+  .modal {
+    height: 65%;
+    width: 89%;
+
+    span {
+      margin-left: 12px;
+    }
+
+    button {
+      cursor: pointer;
+      border-radius: 8px;
+      max-height: 48px;
+      max-width: 120px;
+    }
+  }
+}

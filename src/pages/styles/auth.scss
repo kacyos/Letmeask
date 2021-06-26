@@ -1,12 +1,12 @@
 #page-auth {
   display: flex;
   align-items: stretch;
-  height: 100vh;
 
   aside {
     flex: 7;
     background: #835afd;
     color: #fff;
+    height: auto;
 
     display: flex;
     flex-direction: column;
@@ -18,17 +18,19 @@
       max-width: 320px;
     }
 
-    strong {
-      font: 700 36px "Poppins", sans-serif;
-      line-height: 42px;
-      margin-top: 16px;
-    }
+    div {
+      strong {
+        font: 700 36px "Poppins", sans-serif;
+        line-height: 42px;
+        margin-top: 16px;
+      }
 
-    p {
-      font-size: 24px;
-      line-height: 32px;
-      margin-top: 16px;
-      color: #f8f8f8;
+      p {
+        font-size: 24px;
+        line-height: 32px;
+        margin-top: 16px;
+        color: #f8f8f8;
+      }
     }
   }
 
@@ -145,6 +147,65 @@
       height: 1px;
       background: #a8a8b3;
       margin-left: 16px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #page-auth {
+    flex-direction: column;
+
+    aside {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 15px;
+      gap: 50px;
+
+      img {
+        max-width: 20%;
+      }
+
+      > div {
+        strong {
+          font-size: 25px;
+          line-height: 32px;
+          margin-top: 10px;
+        }
+
+        p {
+          font-size: 16px;
+          line-height: 25px;
+          margin-top: 10px;
+        }
+      }
+    }
+
+    main {
+      padding: 30px;
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  #page-auth {
+    aside {
+      padding: 15px;
+      gap: 20px;
+
+      > div {
+        strong {
+          font-size: 20px;
+          line-height: 20px;
+          margin-top: 10px;
+        }
+
+        p {
+          font-size: 14px;
+          line-height: 25px;
+          margin-top: 10px;
+        }
+      }
     }
   }
 }

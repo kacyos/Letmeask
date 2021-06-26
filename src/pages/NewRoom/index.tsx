@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 import { Link, useHistory } from "react-router-dom";
 import illustrationIMG from "../../assets/images/illustration.svg";
@@ -21,6 +22,7 @@ export function NewRoom() {
     event.preventDefault();
 
     if (newRoom.trim() === "") {
+      toast.error("Informe o nome da sala.");
       return;
     }
 
@@ -31,18 +33,33 @@ export function NewRoom() {
       authorId: user?.id,
     });
 
-    history.push(`/rooms/${firebaseRoom.key}`);
+    history.push(`/admin/rooms/${firebaseRoom.key}`);
   }
 
   return (
     <div id="page-auth">
+      <Toaster
+        toastOptions={{
+          icon: "\u26A0\uFE0F",
+          position: "top-right",
+          style: {
+            background: "#8585fd",
+            color: "#fff",
+          },
+          error: {
+            duration: 2500,
+          },
+        }}
+      />
       <aside>
         <img
           src={illustrationIMG}
           alt="Ilustração simbolizando perguntas e respostas"
         />
-        <strong>Crie salas de Q&amp;A ao-vivo</strong>
-        <p>tire as dúvidas de sua audiência em tempo real</p>
+        <div>
+          <strong>Crie salas de Q&amp;A ao-vivo</strong>
+          <p>tire as dúvidas de sua audiência em tempo real</p>
+        </div>
       </aside>
       <main>
         <div className="main-content">

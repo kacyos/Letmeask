@@ -1,5 +1,7 @@
 import { FormEvent, useState } from "react";
 import { useHistory } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
+
 import illustrationIMG from "../../assets/images/illustration.svg";
 import logoIMG from "../../assets/images/logo.svg";
 import googleIconIMG from "../../assets/images/google-icon.svg";
@@ -29,18 +31,19 @@ export function Home() {
     event.preventDefault();
 
     if (roomCode.trim() === "") {
+      toast.error("Informe o nome da sala.");
       return;
     }
 
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
     if (!roomRef.exists()) {
-      alert("Room does not exists.");
+      toast.error("Sala inexistente.");
       return;
     }
 
     if (roomRef.val().endedAt) {
-      alert("Room already closed.");
+      toast.error("Sala fechada.");
       return;
     }
 
@@ -50,12 +53,27 @@ export function Home() {
   return (
     <div id="page-auth">
       <aside>
+        <Toaster
+          toastOptions={{
+            icon: "\u26A0\uFE0F",
+            position: "top-right",
+            style: {
+              background: "#8585fd",
+              color: "#fff",
+            },
+            error: {
+              duration: 2500,
+            },
+          }}
+        />
         <img
           src={illustrationIMG}
           alt="Ilustração simbolizando perguntas e respostas"
         />
-        <strong>Crie salas de Q&amp;A ao-vivo</strong>
-        <p>tire as dúvidas de sua audiência em tempo real</p>
+        <div>
+          <strong>Crie salas de Q&amp;A ao-vivo</strong>
+          <p>tire as dúvidas de sua audiência em tempo real</p>
+        </div>
       </aside>
       <main>
         <div className="main-content">
